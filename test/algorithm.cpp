@@ -175,3 +175,81 @@ TEST_CASE( "foreach_pair_it/range", "foreach_pair_it_2" ) {
 
     REQUIRE(i == 10);
 }
+
+TEST_CASE( "foreach_dual/container", "foreach_dual_1" ) {
+    std::vector<int> a{1,2,3,4,5};
+    std::vector<int> b{-1,-2,-3,-4,-5};
+
+    int i = 0;
+
+    cpp::foreach_dual(a, b,
+        [&i](auto& v1, auto& v2){ auto sum = v1 + v2; REQUIRE(sum == 0); ++i;});
+
+    REQUIRE(i == 5);
+}
+
+TEST_CASE( "foreach_dual/iterators", "foreach_dual_2" ) {
+    std::vector<int> a{1,2,3,4,5};
+    std::vector<int> b{-1,-2,-3,-4,-5};
+
+    int i = 0;
+
+    cpp::foreach_dual(a.begin(), a.end(), b.begin(),
+        [&i](auto& v1, auto& v2){ auto sum = v1 + v2; REQUIRE(sum == 0); ++i;});
+
+    REQUIRE(i == 5);
+}
+
+TEST_CASE( "foreach_dual_it/container", "foreach_dual_it_1" ) {
+    std::vector<int> a{1,2,3,4,5};
+    std::vector<int> b{-1,-2,-3,-4,-5};
+
+    int i = 0;
+
+    cpp::foreach_dual_it(a, b,
+        [&i](auto v1, auto v2){ auto sum = *v1 + *v2; REQUIRE(sum == 0); ++i;});
+
+    REQUIRE(i == 5);
+}
+
+TEST_CASE( "foreach_dual_it/iterators", "foreach_dual_it_1" ) {
+    std::vector<int> a{1,2,3,4,5};
+    std::vector<int> b{-1,-2,-3,-4,-5};
+
+    int i = 0;
+
+    cpp::foreach_dual_it(a.begin(), a.end(), b.begin(),
+        [&i](auto v1, auto v2){ auto sum = *v1 + *v2; REQUIRE(sum == 0); ++i;});
+
+    REQUIRE(i == 5);
+}
+
+TEST_CASE( "foreach_dual_i/container", "foreach_dual_i_1" ) {
+    std::vector<int> a{1,2,3,4,5};
+    std::vector<int> b{-1,-2,-3,-4,-5};
+
+    int i = 0;
+    int cc = 0;
+
+    cpp::foreach_dual_i(a, b,
+        [&i,&cc,&a,&b](auto& v1, auto& v2, std::size_t c)
+        { auto sum = v1 + v2; REQUIRE(sum == 0);REQUIRE(a[c] == v1); REQUIRE(b[c] == v2); ++i; cc += c;});
+
+    REQUIRE(i == 5);
+    REQUIRE(cc == 10);
+}
+
+TEST_CASE( "foreach_dual_i/iterators", "foreach_dual_i_2" ) {
+    std::vector<int> a{1,2,3,4,5};
+    std::vector<int> b{-1,-2,-3,-4,-5};
+
+    int i = 0;
+    int cc = 0;
+
+    cpp::foreach_dual_i(a.begin(), a.end(), b.begin(),
+        [&i,&cc,&a,&b](auto& v1, auto& v2, std::size_t c)
+        { auto sum = v1 + v2; REQUIRE(sum == 0); REQUIRE(a[c] == v1); REQUIRE(b[c] == v2); ++i; cc += c;});
+
+    REQUIRE(i == 5);
+    REQUIRE(cc == 10);
+}
