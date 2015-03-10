@@ -6,6 +6,7 @@
 //=======================================================================
 
 #include <vector>
+#include <list>
 
 #include "catch.hpp"
 
@@ -101,18 +102,34 @@ TEST_CASE( "foreach_i/range", "foreach_i_2" ) {
     REQUIRE(sum_2 == 15);
 }
 
-TEST_CASE( "foreach_i/references", "foreach_it_3" ) {
+TEST_CASE( "foreach_i/references", "foreach_i_3" ) {
     std::vector<int> a{1,2,3,4,5};
 
-    int sum = 0;
     cpp::foreach_i(a.begin(), a.end(),
-        [&sum,&a](auto& v, std::size_t i){ v += 1; a[i] += 1; });
+        [&a](auto& v, std::size_t i){ v += 1; a[i] += 1; });
 
     REQUIRE(a[0] == 3);
     REQUIRE(a[1] == 4);
     REQUIRE(a[2] == 5);
     REQUIRE(a[3] == 6);
     REQUIRE(a[4] == 7);
+}
+
+TEST_CASE( "foreach_i/list", "foreach_i_4" ) {
+    std::list<int> a{1,2,3,4,5};
+
+    int sum = 0;
+    cpp::foreach_i(a.begin(), a.end(),
+        [&sum](auto& v, std::size_t i){ v += 1; sum += i; });
+
+    REQUIRE(sum == 10);
+
+    auto it = a.begin();
+    REQUIRE(*it++ == 2);
+    REQUIRE(*it++ == 3);
+    REQUIRE(*it++ == 4);
+    REQUIRE(*it++ == 5);
+    REQUIRE(*it++ == 6);
 }
 
 TEST_CASE( "foreach_pair/container", "foreach_pair_1" ) {
