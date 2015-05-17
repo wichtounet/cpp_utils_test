@@ -24,10 +24,21 @@ TEST_CASE( "tmp/type_list/1", "[tmp]" ) {
     REQUIRE(!(cpp::type_list<>::contains<std::string>()));
 }
 
-TEST_CASE( "tmp/is_homegeneous/1", "[tmp]" ) {
+TEST_CASE( "tmp/is_homogeneous/1", "[tmp]" ) {
     REQUIRE((cpp::is_homogeneous<std::size_t, std::size_t, unsigned long>::value));
     REQUIRE((cpp::is_homogeneous<int, int>::value));
     REQUIRE(!(cpp::is_homogeneous<int, long>::value));
     REQUIRE(!(cpp::is_homogeneous<std::string, long>::value));
     REQUIRE((cpp::is_homogeneous<long>::value));
+}
+
+TEST_CASE( "tmp/is_sub_homogeneous/1", "[tmp]" ) {
+    REQUIRE(!(cpp::is_sub_homogeneous<>::value));
+    REQUIRE(!(cpp::is_sub_homogeneous<int>::value));
+    REQUIRE(!(cpp::is_sub_homogeneous<int, int>::value));
+    REQUIRE((cpp::is_sub_homogeneous<int, double>::value));
+    REQUIRE(!(cpp::is_sub_homogeneous<int, double, double>::value));
+    REQUIRE((cpp::is_sub_homogeneous<int, int, double>::value));
+    REQUIRE((cpp::is_sub_homogeneous<int, int, int, double>::value));
+    REQUIRE(!(cpp::is_sub_homogeneous<int, int, double, double>::value));
 }
