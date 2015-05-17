@@ -5,26 +5,33 @@ default: release
 include make-utils/flags.mk
 include make-utils/cpp-utils.mk
 
+WARNING_FLAGS += -pedantic
 CXX_FLAGS += -Iinclude -ICatch/include -Werror
 
 ifneq (,$(findstring clang,$(CXX)))
 CXX_FLAGS += -stdlib=libc++
 endif
 
+ifneq (,$(findstring c++-analyzer,$(CXX)))
+CXX_FLAGS += -stdlib=libc++
+endif
+
 LD_FLAGS += -pthreads
 
-CPP_FILES=$(wildcard test/*.cpp)
-TEST_FILES=$(CPP_FILES:test/%=%)
+# Enable coverage if not disabled by the user
+ifeq (,$(CPP_UTILS_NO_COVERAGE))
+ifneq (,$(findstring clang,$(CXX)))
+DEBUG_FLAGS += -fprofile-arcs -ftest-coverage
+else
+ifneq (,$(findstring g++,$(CXX)))
+DEBUG_FLAGS += --coverage
+endif
+endif
+endif
 
-DEBUG_D_FILES=$(CPP_FILES:%.cpp=debug/%.cpp.d)
-RELEASE_D_FILES=$(CPP_FILES:%.cpp=release/%.cpp.d)
-
-$(eval $(call folder_compile,workbench))
-$(eval $(call test_folder_compile,))
-
-# Create executables
-$(eval $(call add_test_executable,test,$(TEST_FILES)))
-$(eval $(call add_executable_set,test,test))
+# Compile the tests and create the executables
+$(eval $(call auto_folder_compile,test))
+$(eval $(call auto_add_executable,test))
 
 release: release_test
 release_debug: release_debug_test
@@ -48,5 +55,4 @@ cpp_test: debug/bin/test release_debug/bin/test release/bin/test
 
 clean: base_clean
 
--include $(DEBUG_D_FILES)
--include $(RELEASE_D_FILES)
+include make-utils/cpp-utils-finalize.mk
