@@ -16,7 +16,7 @@ ifneq (,$(findstring c++-analyzer,$(CXX)))
 CXX_FLAGS += -stdlib=libc++
 endif
 
-LD_FLAGS += -pthreads
+LD_FLAGS += -pthread
 
 # Enable coverage if not disabled by the user
 ifeq (,$(CPP_UTILS_NO_COVERAGE))
