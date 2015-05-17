@@ -5,6 +5,9 @@
 //  http://opensource.org/licenses/MIT)
 //=======================================================================
 
+#include <list>
+#include <vector>
+
 #include "catch.hpp"
 
 #include "cpp_utils/tmp.hpp"
@@ -41,4 +44,132 @@ TEST_CASE( "tmp/is_sub_homogeneous/1", "[tmp]" ) {
     REQUIRE((cpp::is_sub_homogeneous<int, int, double>::value));
     REQUIRE((cpp::is_sub_homogeneous<int, int, int, double>::value));
     REQUIRE(!(cpp::is_sub_homogeneous<int, int, double, double>::value));
+}
+
+TEST_CASE( "tmp/first_value/1", "[tmp]" ) {
+    REQUIRE(cpp::first_value(1,"str",true) == 1);
+    REQUIRE(cpp::first_value(std::string("str"),1,true) == "str");
+    REQUIRE(cpp::first_value(false,"str",1,true) == false);
+}
+
+TEST_CASE( "tmp/last_value/1", "[tmp]" ) {
+    REQUIRE(cpp::last_value(1,"str",true) == true);
+    REQUIRE(cpp::last_value("str",1,1) == 1);
+    REQUIRE(cpp::last_value(false,"str",1,std::string("str2")) == "str2");
+}
+
+TEST_CASE( "tmp/nth_value/1", "[tmp]" ) {
+    REQUIRE(cpp::nth_value<0>(1,"str",true) == 1);
+    REQUIRE(cpp::nth_value<1>(1,std::string("str"),true) == "str");
+    REQUIRE(cpp::nth_value<2>(1,std::string("str"),true) == true);
+}
+
+TEST_CASE( "tmp/first_type/1", "[tmp]" ) {
+    REQUIRE((std::is_same<cpp::first_type<int, char*, bool>::type, int>::value));
+    REQUIRE((std::is_same<cpp::first_type<char*, int, bool>::type, char*>::value));
+    REQUIRE((std::is_same<cpp::first_type<bool, int, int*>::type, bool>::value));
+    REQUIRE((std::is_same<cpp::first_type<bool>::type, bool>::value));
+}
+
+TEST_CASE( "tmp/first_type/2", "[tmp]" ) {
+    REQUIRE((std::is_same<cpp::first_type_t<int, char*, bool>, int>::value));
+    REQUIRE((std::is_same<cpp::first_type_t<char*, int, bool>, char*>::value));
+    REQUIRE((std::is_same<cpp::first_type_t<bool, int, int*>, bool>::value));
+    REQUIRE((std::is_same<cpp::first_type_t<bool>, bool>::value));
+}
+
+TEST_CASE( "tmp/last_type/1", "[tmp]" ) {
+    REQUIRE((std::is_same<cpp::last_type<int, char*, bool>::type, bool>::value));
+    REQUIRE((std::is_same<cpp::last_type<char*, int, int*>::type, int*>::value));
+    REQUIRE((std::is_same<cpp::last_type<bool, int, std::string>::type, std::string>::value));
+    REQUIRE((std::is_same<cpp::last_type<bool>::type, bool>::value));
+}
+
+TEST_CASE( "tmp/last_type/2", "[tmp]" ) {
+    REQUIRE((std::is_same<cpp::last_type_t<int, char*, bool>, bool>::value));
+    REQUIRE((std::is_same<cpp::last_type_t<char*, int, int*>, int*>::value));
+    REQUIRE((std::is_same<cpp::last_type_t<bool, int, std::string>, std::string>::value));
+    REQUIRE((std::is_same<cpp::last_type_t<bool>, bool>::value));
+}
+
+TEST_CASE( "tmp/nth_type/1", "[tmp]" ) {
+    REQUIRE((std::is_same<cpp::nth_type<0, int, char*, bool>::type, int>::value));
+    REQUIRE((std::is_same<cpp::nth_type<1, int, char*, bool>::type, char*>::value));
+    REQUIRE((std::is_same<cpp::nth_type<2, int, char*, bool>::type, bool>::value));
+}
+
+TEST_CASE( "tmp/nth_type/2", "[tmp]" ) {
+    REQUIRE((std::is_same<cpp::nth_type_t<0, int, char*, bool>, int>::value));
+    REQUIRE((std::is_same<cpp::nth_type_t<1, int, char*, bool>, char*>::value));
+    REQUIRE((std::is_same<cpp::nth_type_t<2, int, char*, bool>, bool>::value));
+}
+
+TEST_CASE( "tmp/is_specialization/1", "[tmp]" ) {
+    REQUIRE((cpp::is_specialization_of<std::vector,std::vector<double>>::value));
+    REQUIRE((cpp::is_specialization_of<std::vector,std::vector<std::string>>::value));
+    REQUIRE((cpp::is_specialization_of<std::list,std::list<std::string>>::value));
+}
+
+TEST_CASE( "tmp/add_const_lvalue_t/1", "[tmp]" ) {
+    REQUIRE((std::is_same<cpp::add_const_lvalue_t<int>, const int&>::value));
+    REQUIRE((std::is_same<cpp::add_const_lvalue_t<char>, const char&>::value));
+    REQUIRE((std::is_same<cpp::add_const_lvalue_t<std::string>, const std::string&>::value));
+    REQUIRE((std::is_same<cpp::add_const_lvalue_t<const int>, const int&>::value));
+    REQUIRE((std::is_same<cpp::add_const_lvalue_t<const int&>, const int&>::value));
+}
+
+TEST_CASE( "tmp/add_const_rvalue_t/1", "[tmp]" ) {
+    REQUIRE((std::is_same<cpp::add_const_rvalue_t<int>, const int&&>::value));
+    REQUIRE((std::is_same<cpp::add_const_rvalue_t<char>, const char&&>::value));
+    REQUIRE((std::is_same<cpp::add_const_rvalue_t<std::string>, const std::string&&>::value));
+    REQUIRE((std::is_same<cpp::add_const_rvalue_t<const int>, const int&&>::value));
+    REQUIRE((std::is_same<cpp::add_const_rvalue_t<const int&>, const int&>::value));
+    REQUIRE((std::is_same<cpp::add_const_rvalue_t<const int&&>, const int&&>::value));
+}
+
+struct test_op {
+    std::size_t int_op = 0;
+    std::size_t double_op = 0;
+    std::size_t string_op = 0;
+
+    template<typename O>
+    void operator()(){
+        if(std::is_same<int, O>::value){
+            ++int_op;
+        }
+
+        if(std::is_same<double, O>::value){
+            ++double_op;
+        }
+
+        if(std::is_same<std::string, O>::value){
+            ++string_op;
+        }
+    }
+};
+
+TEST_CASE( "tmp/for_each_tuple_t/1", "[tmp]" ) {
+    test_op oo;
+
+    using tuple_t_1 = std::tuple<int, std::string, int, char, char, double, double, std::string, std::string>;
+    using tuple_t_2 = std::tuple<int, double>;
+    using tuple_t_3 = std::tuple<>;
+
+    cpp::for_each_tuple_t<tuple_t_1>(oo);
+
+    REQUIRE(oo.int_op == 2);
+    REQUIRE(oo.double_op == 2);
+    REQUIRE(oo.string_op == 3);
+
+    cpp::for_each_tuple_t<tuple_t_2>(oo);
+
+    REQUIRE(oo.int_op == 3);
+    REQUIRE(oo.double_op == 3);
+    REQUIRE(oo.string_op == 3);
+
+    cpp::for_each_tuple_t<tuple_t_3>(oo);
+
+    REQUIRE(oo.int_op == 3);
+    REQUIRE(oo.double_op == 3);
+    REQUIRE(oo.string_op == 3);
 }
