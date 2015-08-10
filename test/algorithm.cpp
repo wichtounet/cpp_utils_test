@@ -253,3 +253,13 @@ TEST_CASE( "foreach_dual_i/iterators", "foreach_dual_i_2" ) {
     REQUIRE(i == 5);
     REQUIRE(cc == 10);
 }
+
+TEST_CASE( "foreach_n/1", "[algorithm]" ) {
+    int i = 0;
+    int cc = 0;
+
+    cpp::foreach_n(0, 10, [&i, &cc](std::size_t value){ ++i; cc += value; });
+
+    REQUIRE(i == 10);
+    REQUIRE(cc == 45);
+}
