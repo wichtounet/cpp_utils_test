@@ -39,13 +39,13 @@ debug: debug_test
 
 all: release release_debug debug
 
-debug_test: debug
+debug_test: debug/bin/test
 	./debug/bin/test
 
-release_test: release
+release_test: release/bin/test
 	./release/bin/test
 
-release_debug_test: release_debug
+release_debug_test: release_debug/bin/test
 	./release_debug/bin/test
 
 cpp_test: debug/bin/test release_debug/bin/test release/bin/test
