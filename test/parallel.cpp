@@ -197,7 +197,23 @@ TEST_CASE( "tp/parallel_foreach_i/2", "[parallel]" ) {
     REQUIRE(ints[1] == 1);
     REQUIRE(ints[2] == 2);
     REQUIRE(ints[3] == 3);
-    REQUIRE(ints[4] == 4); REQUIRE(ints[5] == 5);
+    REQUIRE(ints[4] == 4);
+    REQUIRE(ints[5] == 5);
+}
+
+TEST_CASE( "tp/parallel_foreach_i/3", "[parallel]" ) {
+    std::vector<int> ints(109);
+
+    std::iota(ints.begin(), ints.end(), 0);
+
+    cpp::default_thread_pool<> pool;
+    cpp::parallel_foreach_i(pool, ints, [&ints](int /*a*/, std::size_t i){
+        ints[i] = i;
+    });
+
+    for(std::size_t i = 0; i < ints.size(); ++i){
+        REQUIRE(ints[i] == i);
+    }
 }
 
 TEST_CASE( "tp/parallel_foreach_i_only/1", "[parallel]" ) {
@@ -230,4 +246,20 @@ TEST_CASE( "tp/parallel_foreach_i_only/2", "[parallel]" ) {
     REQUIRE(ints[3] == 3);
     REQUIRE(ints[4] == 4);
     REQUIRE(ints[5] == 5);
+}
+
+TEST_CASE( "tp/parallel_foreach_it/1", "[parallel]" ) {
+    std::vector<int> ints{-1,2,0,3,4,1};
+
+    cpp::default_thread_pool<> pool;
+    cpp::parallel_foreach_it(pool, ints, [](auto it){
+        ++(*it);
+    });
+
+    REQUIRE(ints[0] == 0);
+    REQUIRE(ints[1] == 3);
+    REQUIRE(ints[2] == 1);
+    REQUIRE(ints[3] == 4);
+    REQUIRE(ints[4] == 5);
+    REQUIRE(ints[5] == 2);
 }
