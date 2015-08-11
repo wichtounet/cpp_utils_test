@@ -6,6 +6,7 @@
 //=======================================================================
 
 #include <string>
+#include <numeric>
 
 #include "catch.hpp"
 
@@ -97,6 +98,22 @@ TEST_CASE( "thread_pool<true>/parallel_foreach_n/1", "[parallel]" ) {
     REQUIRE(ints[4] == 5);
     REQUIRE(ints[5] == 6);
     REQUIRE(ints[6] == 7);
+}
+
+TEST_CASE( "thread_pool<true>/parallel_foreach_n/2", "[parallel]" ) {
+    std::vector<std::size_t> ints(109);
+
+    std::iota(ints.begin(), ints.end(), 0);
+
+    cpp::thread_pool<true> tp;
+
+    cpp::maybe_parallel_foreach_n(tp, 0, ints.size(), [&ints](std::size_t a){
+        ++ints[a];
+    });
+
+    for(std::size_t i = 0; i < ints.size(); ++i){
+        REQUIRE(ints[i] == i + 1);
+    }
 }
 
 TEST_CASE( "thread_pool<false>/parallel_foreach/1", "[parallel]" ) {
