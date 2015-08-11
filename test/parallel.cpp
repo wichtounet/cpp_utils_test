@@ -122,7 +122,7 @@ TEST_CASE( "tp/parallel_foreach_n/1", "[parallel]" ) {
     std::vector<int> ints{0, 1, 2, 3, 4, 5, 6};
 
     cpp::default_thread_pool<> pool;
-    cpp::parallel_foreach_n(pool, 0, 7, [&ints](int a){
+    cpp::parallel_foreach_n(pool, 0, 7, [&ints](std::size_t a){
         ++ints[a];
     });
 
