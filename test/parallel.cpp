@@ -6,6 +6,7 @@
 //=======================================================================
 
 #include <string>
+#include <numeric>
 
 #include "catch.hpp"
 
