@@ -49,11 +49,11 @@ TEST_CASE( "tmp/is_sub_homogeneous/1", "[tmp]" ) {
 TEST_CASE( "tmp/first_value/1", "[tmp]" ) {
     REQUIRE(cpp::first_value(1,"str",true) == 1);
     REQUIRE(cpp::first_value(std::string("str"),1,true) == "str");
-    REQUIRE(cpp::first_value(false,"str",1,true) == false);
+    REQUIRE(!cpp::first_value(false,"str",1,true));
 }
 
 TEST_CASE( "tmp/last_value/1", "[tmp]" ) {
-    REQUIRE(cpp::last_value(1,"str",true) == true);
+    REQUIRE(cpp::last_value(1,"str",true));
     REQUIRE(cpp::last_value("str",1,1) == 1);
     REQUIRE(cpp::last_value(false,"str",1,std::string("str2")) == "str2");
 }
@@ -61,7 +61,7 @@ TEST_CASE( "tmp/last_value/1", "[tmp]" ) {
 TEST_CASE( "tmp/nth_value/1", "[tmp]" ) {
     REQUIRE(cpp::nth_value<0>(1,"str",true) == 1);
     REQUIRE(cpp::nth_value<1>(1,std::string("str"),true) == "str");
-    REQUIRE(cpp::nth_value<2>(1,std::string("str"),true) == true);
+    REQUIRE(cpp::nth_value<2>(1,std::string("str"),true));
 }
 
 TEST_CASE( "tmp/first_type/1", "[tmp]" ) {
