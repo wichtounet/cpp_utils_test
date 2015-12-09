@@ -12,7 +12,12 @@
 
 #include "cpp_utils/assert.hpp"
 
+int assert_wrapper(bool value){
+    cpp_assert(value, "message");
+    return 0;
+}
+
 TEST_CASE( "assert/1", "[assert]" ) {
-    REQUIRE_THROWS(cpp_assert(false, "message"));
-    REQUIRE_NOT_THROWS(cpp_assert(true, "message"));
+    REQUIRE_THROWS(assert_wrapper(false));
+    REQUIRE_NOTHROW(assert_wrapper(true));
 }
