@@ -12,10 +12,14 @@
 
 #include "cpp_utils/assert.hpp"
 
+namespace {
+
 int assert_wrapper(bool value){
     cpp_assert(value, "message");
     return 0;
 }
+
+} //end of namespace
 
 TEST_CASE( "assert/1", "[assert]" ) {
     REQUIRE_THROWS(assert_wrapper(false));
