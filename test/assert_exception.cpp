@@ -6,19 +6,9 @@
 //=======================================================================
 
 #undef NDEBUG
+#define CPP_UTILS_ASSERT_EXCEPTION
 
-#include <iostream>
 #include "catch.hpp"
-
-namespace std {
-
-void redefined_abort(){
-    throw 1;
-}
-
-} //end of namespace std
-
-#define abort redefined_abort
 
 #include "cpp_utils/assert.hpp"
 
@@ -31,17 +21,7 @@ int assert_wrapper(bool value){
 
 } //end of namespace
 
-TEST_CASE( "assert/message/1", "[assert]" ) {
-    std::stringstream stream;
-    auto out = std::cerr.rdbuf();
-    std::cerr.rdbuf(stream.rdbuf());
-
+TEST_CASE( "assert/exception/1", "[assert]" ) {
     REQUIRE_THROWS(assert_wrapper(false));
-    auto message = stream.str();
-
-    REQUIRE(message == "***** Internal Program Error - assertion (value) failed in int {anonymous}::assert_wrapper(bool):\ntest/assert.cpp(28): message\n");
-
-    std::cerr.rdbuf(out);
-
     REQUIRE_NOTHROW(assert_wrapper(true));
 }
