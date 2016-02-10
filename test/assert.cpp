@@ -39,7 +39,12 @@ TEST_CASE( "assert/message/1", "[assert]" ) {
     REQUIRE_THROWS(assert_wrapper(false));
     auto message = stream.str();
 
+
+#ifdef __clang__
+    REQUIRE(message == "***** Internal Program Error - assertion (value) failed in int (anonymous namespace)::assert_wrapper(bool):\ntest/assert.cpp(28): message\n");
+#else
     REQUIRE(message == "***** Internal Program Error - assertion (value) failed in int {anonymous}::assert_wrapper(bool):\ntest/assert.cpp(28): message\n");
+#endif
 
     std::cerr.rdbuf(out);
 
