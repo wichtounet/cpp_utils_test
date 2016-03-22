@@ -15,14 +15,17 @@ TEST_CASE( "ltrim", "ltrim" ) {
     std::string a = "    asdf";
     std::string b = "    asdf    ";
     std::string c = "asdf";
+    std::string d = "asdf  ";
 
     REQUIRE(cpp::ltrim(a) == "asdf");
     REQUIRE(cpp::ltrim(b) == "asdf    ");
     REQUIRE(cpp::ltrim(c) == "asdf");
+    REQUIRE(cpp::ltrim(d) == "asdf  ");
 
     REQUIRE(a == "asdf");
     REQUIRE(b == "asdf    ");
     REQUIRE(c == "asdf");
+    REQUIRE(d == "asdf  ");
 }
 
 TEST_CASE( "rtrim", "rtrim" ) {
