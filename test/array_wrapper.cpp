@@ -40,5 +40,15 @@ TEST_CASE( "array_wrapper/1", "[array_wrapper]" ) {
         ++i;
     }
 
+    i = 0;
+    auto it = array.cbegin();
+    auto end = array.cend();
+    while(it != end){
+        REQUIRE(*it == float(i));
+        ++it;
+        ++i;
+    }
+
+
     free(mem);
 }
