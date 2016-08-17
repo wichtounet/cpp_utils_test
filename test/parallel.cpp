@@ -28,6 +28,22 @@ TEST_CASE( "parallel_foreach_n/1", "[parallel]" ) {
     REQUIRE(ints[6] == 7);
 }
 
+TEST_CASE( "parallel_foreach_n/2", "[parallel]" ) {
+    std::vector<int> ints{0, 1, 2, 3, 4, 5, 6};
+
+    cpp::parallel_foreach_n(0, 0, [&ints](std::size_t a){
+        ++ints[a];
+    });
+
+    REQUIRE(ints[0] == 0);
+    REQUIRE(ints[1] == 1);
+    REQUIRE(ints[2] == 2);
+    REQUIRE(ints[3] == 3);
+    REQUIRE(ints[4] == 4);
+    REQUIRE(ints[5] == 5);
+    REQUIRE(ints[6] == 6);
+}
+
 TEST_CASE( "parallel_foreach/1", "[parallel]" ) {
     std::vector<int> ints{0, 1, 2, 3, 4, 5, 6};
 
@@ -58,6 +74,22 @@ TEST_CASE( "parallel_foreach/2", "[parallel]" ) {
     REQUIRE(ints[4] == 5);
     REQUIRE(ints[5] == 6);
     REQUIRE(ints[6] == 7);
+}
+
+TEST_CASE( "parallel_foreach/3", "[parallel]" ) {
+    std::vector<int> ints{0, 1, 2, 3, 4, 5, 6};
+
+    cpp::parallel_foreach(ints.begin(), ints.begin(), [&ints](int a){
+        ++ints[a];
+    });
+
+    REQUIRE(ints[0] == 0);
+    REQUIRE(ints[1] == 1);
+    REQUIRE(ints[2] == 2);
+    REQUIRE(ints[3] == 3);
+    REQUIRE(ints[4] == 4);
+    REQUIRE(ints[5] == 5);
+    REQUIRE(ints[6] == 6);
 }
 
 TEST_CASE( "parallel_foreach_i/1", "[parallel]" ) {
