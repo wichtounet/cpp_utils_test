@@ -33,3 +33,14 @@ TEST_CASE( "streams/2", "[streams]" ) {
 
     REQUIRE(stream.str() == "[1, 2, 3, 99, 0, -1, 1]");
 }
+
+TEST_CASE( "streams/3", "[streams]" ) {
+    std::vector<int> ints;
+
+    std::stringstream stream;
+
+    using cpp::operator<<;
+    stream << ints;
+
+    REQUIRE(stream.str() == "[]");
+}
