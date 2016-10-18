@@ -173,3 +173,20 @@ TEST_CASE( "tmp/for_each_tuple_t/1", "[tmp]" ) {
     REQUIRE(oo.double_op == 3);
     REQUIRE(oo.string_op == 3);
 }
+
+TEST_CASE ("tmp/and_u/1", "[tmp]"){
+    REQUIRE((!cpp::and_u<false, false>::value));
+    REQUIRE((!cpp::and_u<true, true, true, false, true>::value));
+    REQUIRE((cpp::and_u<true, true>::value));
+    REQUIRE((!cpp::and_u<false, true>::value));
+    REQUIRE((!cpp::and_u<false>::value));
+    REQUIRE((cpp::and_u<true>::value));
+}
+
+TEST_CASE ("tmp/and_c/1", "[tmp]"){
+    REQUIRE((!cpp::and_c<std::is_same<float, double>, std::is_same<double, double>>::value));
+    REQUIRE((cpp::and_c<std::is_same<float, float>, std::is_same<void, void>>::value));
+    REQUIRE((!cpp::and_c<std::is_same<float, double>, std::is_same<void, void>>::value));
+    REQUIRE((!cpp::and_c<std::is_same<float, double>>::value));
+    REQUIRE((cpp::and_c<std::is_same<void, void>>::value));
+}
