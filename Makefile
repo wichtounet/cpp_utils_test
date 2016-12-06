@@ -8,14 +8,6 @@ include make-utils/cpp-utils.mk
 WARNING_FLAGS += -pedantic
 CXX_FLAGS += -Iinclude -ICatch/include -Werror
 
-ifneq (,$(findstring clang,$(CXX)))
-CXX_FLAGS += -stdlib=libc++
-endif
-
-ifneq (,$(findstring c++-analyzer,$(CXX)))
-CXX_FLAGS += -stdlib=libc++
-endif
-
 LD_FLAGS += -pthread
 
 # Enable coverage if not disabled by the user
