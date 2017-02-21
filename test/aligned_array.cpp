@@ -6,6 +6,7 @@
 //=======================================================================
 
 #include <string>
+#include <iostream>
 
 #include "catch.hpp"
 
@@ -80,5 +81,19 @@ TEST_CASE( "aligned_array/2", "[array_wrapper]" ) {
         CHECK(*rit == double(i));
         ++rit;
         --i;
+    }
+}
+
+TEST_CASE( "aligned_array/3", "[array_wrapper]" ) {
+    alignas(32) cpp::aligned_array<float, 7, 32> array;
+
+    REQUIRE(array.size() == 7);
+    REQUIRE((reinterpret_cast<size_t>(array.data()) % 32) == 0);
+    REQUIRE((reinterpret_cast<size_t>(&array) % 32) == 0);
+    REQUIRE(reinterpret_cast<size_t>(array.data()) == reinterpret_cast<size_t>(&array));
+
+    for(std::size_t i = 0; i < 7; ++i){
+        array[i] = i;
+        REQUIRE(array[i] == float(i));
     }
 }
