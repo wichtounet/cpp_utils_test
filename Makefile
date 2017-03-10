@@ -29,6 +29,9 @@ release: release_test
 release_debug: release_debug_test
 debug: debug_test
 
+clang-tidy:
+	@ /usr/share/clang/run-clang-tidy.py -p . -header-filter '^include/cpp_utils' -checks='cert-*,cppcoreguidelines-*,google-*,llvm-*,misc-*,modernize-*,performance-*,readility-*,-cppcoreguidelines-pro-type-reinterpret-cast,-cppcoreguidelines-pro-bounds-pointer-arithmetic,-google-readability-namespace-comments,-llvm-namespace-comment,-llvm-include-order,-google-runtime-references' -j9 2>/dev/null  | /usr/bin/zgrep -v "^clang-tidy"
+
 all: release release_debug debug
 
 debug_test: debug/bin/test
