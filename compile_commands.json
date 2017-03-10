@@ -1,0 +1,92 @@
+[
+    {
+        "command": "clang++ -g -fprofile-arcs -ftest-coverage -Iinclude -std=c++1y -Wextra -Wall -Qunused-arguments -Wuninitialized -Wsometimes-uninitialized -Wno-long-long -Winit-self -Wdocumentation -pedantic -Iinclude -ICatch/include -Werror -MD -MF debug/test/algorithm.cpp.d -o debug/test/algorithm.cpp.o -c test/algorithm.cpp", 
+        "directory": "/home/wichtounet/dev/cpp_utils_test", 
+        "file": "/home/wichtounet/dev/cpp_utils_test/test/algorithm.cpp"
+    }, 
+    {
+        "command": "clang++ -g -fprofile-arcs -ftest-coverage -Iinclude -std=c++1y -Wextra -Wall -Qunused-arguments -Wuninitialized -Wsometimes-uninitialized -Wno-long-long -Winit-self -Wdocumentation -pedantic -Iinclude -ICatch/include -Werror -MD -MF debug/test/parallel.cpp.d -o debug/test/parallel.cpp.o -c test/parallel.cpp", 
+        "directory": "/home/wichtounet/dev/cpp_utils_test", 
+        "file": "/home/wichtounet/dev/cpp_utils_test/test/parallel.cpp"
+    }, 
+    {
+        "command": "clang++ -g -fprofile-arcs -ftest-coverage -Iinclude -std=c++1y -Wextra -Wall -Qunused-arguments -Wuninitialized -Wsometimes-uninitialized -Wno-long-long -Winit-self -Wdocumentation -pedantic -Iinclude -ICatch/include -Werror -MD -MF debug/test/data.cpp.d -o debug/test/data.cpp.o -c test/data.cpp", 
+        "directory": "/home/wichtounet/dev/cpp_utils_test", 
+        "file": "/home/wichtounet/dev/cpp_utils_test/test/data.cpp"
+    }, 
+    {
+        "command": "clang++ -g -fprofile-arcs -ftest-coverage -Iinclude -std=c++1y -Wextra -Wall -Qunused-arguments -Wuninitialized -Wsometimes-uninitialized -Wno-long-long -Winit-self -Wdocumentation -pedantic -Iinclude -ICatch/include -Werror -MD -MF debug/test/assert.cpp.d -o debug/test/assert.cpp.o -c test/assert.cpp", 
+        "directory": "/home/wichtounet/dev/cpp_utils_test", 
+        "file": "/home/wichtounet/dev/cpp_utils_test/test/assert.cpp"
+    }, 
+    {
+        "command": "clang++ -g -fprofile-arcs -ftest-coverage -Iinclude -std=c++1y -Wextra -Wall -Qunused-arguments -Wuninitialized -Wsometimes-uninitialized -Wno-long-long -Winit-self -Wdocumentation -pedantic -Iinclude -ICatch/include -Werror -MD -MF debug/test/static_if.cpp.d -o debug/test/static_if.cpp.o -c test/static_if.cpp", 
+        "directory": "/home/wichtounet/dev/cpp_utils_test", 
+        "file": "/home/wichtounet/dev/cpp_utils_test/test/static_if.cpp"
+    }, 
+    {
+        "command": "clang++ -g -fprofile-arcs -ftest-coverage -Iinclude -std=c++1y -Wextra -Wall -Qunused-arguments -Wuninitialized -Wsometimes-uninitialized -Wno-long-long -Winit-self -Wdocumentation -pedantic -Iinclude -ICatch/include -Werror -MD -MF debug/test/maybe_parallel.cpp.d -o debug/test/maybe_parallel.cpp.o -c test/maybe_parallel.cpp", 
+        "directory": "/home/wichtounet/dev/cpp_utils_test", 
+        "file": "/home/wichtounet/dev/cpp_utils_test/test/maybe_parallel.cpp"
+    }, 
+    {
+        "command": "clang++ -g -fprofile-arcs -ftest-coverage -Iinclude -std=c++1y -Wextra -Wall -Qunused-arguments -Wuninitialized -Wsometimes-uninitialized -Wno-long-long -Winit-self -Wdocumentation -pedantic -Iinclude -ICatch/include -Werror -MD -MF debug/test/aligned_vector.cpp.d -o debug/test/aligned_vector.cpp.o -c test/aligned_vector.cpp", 
+        "directory": "/home/wichtounet/dev/cpp_utils_test", 
+        "file": "/home/wichtounet/dev/cpp_utils_test/test/aligned_vector.cpp"
+    }, 
+    {
+        "command": "clang++ -g -fprofile-arcs -ftest-coverage -Iinclude -std=c++1y -Wextra -Wall -Qunused-arguments -Wuninitialized -Wsometimes-uninitialized -Wno-long-long -Winit-self -Wdocumentation -pedantic -Iinclude -ICatch/include -Werror -MD -MF debug/test/watch.cpp.d -o debug/test/watch.cpp.o -c test/watch.cpp", 
+        "directory": "/home/wichtounet/dev/cpp_utils_test", 
+        "file": "/home/wichtounet/dev/cpp_utils_test/test/watch.cpp"
+    }, 
+    {
+        "command": "clang++ -g -fprofile-arcs -ftest-coverage -Iinclude -std=c++1y -Wextra -Wall -Qunused-arguments -Wuninitialized -Wsometimes-uninitialized -Wno-long-long -Winit-self -Wdocumentation -pedantic -Iinclude -ICatch/include -Werror -MD -MF debug/test/tuples.cpp.d -o debug/test/tuples.cpp.o -c test/tuples.cpp", 
+        "directory": "/home/wichtounet/dev/cpp_utils_test", 
+        "file": "/home/wichtounet/dev/cpp_utils_test/test/tuples.cpp"
+    }, 
+    {
+        "command": "clang++ -g -fprofile-arcs -ftest-coverage -Iinclude -std=c++1y -Wextra -Wall -Qunused-arguments -Wuninitialized -Wsometimes-uninitialized -Wno-long-long -Winit-self -Wdocumentation -pedantic -Iinclude -ICatch/include -Werror -MD -MF debug/test/assert_exception.cpp.d -o debug/test/assert_exception.cpp.o -c test/assert_exception.cpp", 
+        "directory": "/home/wichtounet/dev/cpp_utils_test", 
+        "file": "/home/wichtounet/dev/cpp_utils_test/test/assert_exception.cpp"
+    }, 
+    {
+        "command": "clang++ -g -fprofile-arcs -ftest-coverage -Iinclude -std=c++1y -Wextra -Wall -Qunused-arguments -Wuninitialized -Wsometimes-uninitialized -Wno-long-long -Winit-self -Wdocumentation -pedantic -Iinclude -ICatch/include -Werror -MD -MF debug/test/string.cpp.d -o debug/test/string.cpp.o -c test/string.cpp", 
+        "directory": "/home/wichtounet/dev/cpp_utils_test", 
+        "file": "/home/wichtounet/dev/cpp_utils_test/test/string.cpp"
+    }, 
+    {
+        "command": "clang++ -g -fprofile-arcs -ftest-coverage -Iinclude -std=c++1y -Wextra -Wall -Qunused-arguments -Wuninitialized -Wsometimes-uninitialized -Wno-long-long -Winit-self -Wdocumentation -pedantic -Iinclude -ICatch/include -Werror -MD -MF debug/test/aligned_array.cpp.d -o debug/test/aligned_array.cpp.o -c test/aligned_array.cpp", 
+        "directory": "/home/wichtounet/dev/cpp_utils_test", 
+        "file": "/home/wichtounet/dev/cpp_utils_test/test/aligned_array.cpp"
+    }, 
+    {
+        "command": "clang++ -g -fprofile-arcs -ftest-coverage -Iinclude -std=c++1y -Wextra -Wall -Qunused-arguments -Wuninitialized -Wsometimes-uninitialized -Wno-long-long -Winit-self -Wdocumentation -pedantic -Iinclude -ICatch/include -Werror -MD -MF debug/test/io.cpp.d -o debug/test/io.cpp.o -c test/io.cpp", 
+        "directory": "/home/wichtounet/dev/cpp_utils_test", 
+        "file": "/home/wichtounet/dev/cpp_utils_test/test/io.cpp"
+    }, 
+    {
+        "command": "clang++ -g -fprofile-arcs -ftest-coverage -Iinclude -std=c++1y -Wextra -Wall -Qunused-arguments -Wuninitialized -Wsometimes-uninitialized -Wno-long-long -Winit-self -Wdocumentation -pedantic -Iinclude -ICatch/include -Werror -MD -MF debug/test/streams.cpp.d -o debug/test/streams.cpp.o -c test/streams.cpp", 
+        "directory": "/home/wichtounet/dev/cpp_utils_test", 
+        "file": "/home/wichtounet/dev/cpp_utils_test/test/streams.cpp"
+    }, 
+    {
+        "command": "clang++ -g -fprofile-arcs -ftest-coverage -Iinclude -std=c++1y -Wextra -Wall -Qunused-arguments -Wuninitialized -Wsometimes-uninitialized -Wno-long-long -Winit-self -Wdocumentation -pedantic -Iinclude -ICatch/include -Werror -MD -MF debug/test/tmp.cpp.d -o debug/test/tmp.cpp.o -c test/tmp.cpp", 
+        "directory": "/home/wichtounet/dev/cpp_utils_test", 
+        "file": "/home/wichtounet/dev/cpp_utils_test/test/tmp.cpp"
+    }, 
+    {
+        "command": "clang++ -g -fprofile-arcs -ftest-coverage -Iinclude -std=c++1y -Wextra -Wall -Qunused-arguments -Wuninitialized -Wsometimes-uninitialized -Wno-long-long -Winit-self -Wdocumentation -pedantic -Iinclude -ICatch/include -Werror -MD -MF debug/test/likely.cpp.d -o debug/test/likely.cpp.o -c test/likely.cpp", 
+        "directory": "/home/wichtounet/dev/cpp_utils_test", 
+        "file": "/home/wichtounet/dev/cpp_utils_test/test/likely.cpp"
+    }, 
+    {
+        "command": "clang++ -g -fprofile-arcs -ftest-coverage -Iinclude -std=c++1y -Wextra -Wall -Qunused-arguments -Wuninitialized -Wsometimes-uninitialized -Wno-long-long -Winit-self -Wdocumentation -pedantic -Iinclude -ICatch/include -Werror -MD -MF debug/test/test.cpp.d -o debug/test/test.cpp.o -c test/test.cpp", 
+        "directory": "/home/wichtounet/dev/cpp_utils_test", 
+        "file": "/home/wichtounet/dev/cpp_utils_test/test/test.cpp"
+    }, 
+    {
+        "command": "clang++ -g -fprofile-arcs -ftest-coverage -Iinclude -std=c++1y -Wextra -Wall -Qunused-arguments -Wuninitialized -Wsometimes-uninitialized -Wno-long-long -Winit-self -Wdocumentation -pedantic -Iinclude -ICatch/include -Werror -MD -MF debug/test/array_wrapper.cpp.d -o debug/test/array_wrapper.cpp.o -c test/array_wrapper.cpp", 
+        "directory": "/home/wichtounet/dev/cpp_utils_test", 
+        "file": "/home/wichtounet/dev/cpp_utils_test/test/array_wrapper.cpp"
+    }
+]
