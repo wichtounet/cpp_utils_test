@@ -12,7 +12,7 @@
 #include "cpp_utils/array_wrapper.hpp"
 
 TEST_CASE( "array_wrapper/1", "[array_wrapper]" ) {
-    float* mem = (float*) malloc(sizeof(float) * 8);
+    auto* mem = static_cast<float*>(malloc(sizeof(float) * 8));
 
     cpp::array_wrapper<float> array(mem, 7);
     const auto& array_c = array;
