@@ -19,13 +19,13 @@ TEST_CASE( "binary/rw", "[binary]" ) {
         cpp::binary_write(os, static_cast<double>(2.2));
         cpp::binary_write(os, static_cast<char>('i'));
         cpp::binary_write(os, static_cast<float>(4.5f));
-        cpp::binary_write(os, static_cast<long>(1e8));
+        cpp::binary_write(os, static_cast<int64_t>(1e8));
     }
 
     double a;
     char b;
     float c;
-    long d;
+    int64_t d;
 
     std::ifstream is("test1.tmp.etl", std::ios::in | std::ios::binary);
 
@@ -47,7 +47,7 @@ TEST_CASE( "binary/rw_all", "[binary]" ) {
         std::vector<double> a{1.1, 2.2};
         std::vector<char> b{'c', 'd'};
         std::vector<float> c{4.5f, 6.0f};
-        std::vector<long> d{1000, 2};
+        std::vector<int64_t> d{1000, 2};
 
         cpp::binary_write_all(os, a);
         cpp::binary_write_all(os, b);
@@ -59,7 +59,7 @@ TEST_CASE( "binary/rw_all", "[binary]" ) {
     std::vector<double> a(2);
     std::vector<char> b(2);
     std::vector<float> c(2);
-    std::vector<long> d(2);
+    std::vector<int64_t> d(2);
 
     std::ifstream is("test2.tmp.etl", std::ios::in | std::ios::binary);
 
