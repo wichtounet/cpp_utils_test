@@ -49,6 +49,18 @@ TEST_CASE( "tuple/for_each/1", "[tuple]" ) {
     REQUIRE(char_cnt == 1);
 }
 
+TEST_CASE( "tuple/for_each/2", "[tuple]" ) {
+    std::tuple<> tuple;
+
+    bool test = true;
+
+    cpp::for_each(tuple, [&](auto& a){
+        test = false;
+    });
+
+    REQUIRE(test);
+}
+
 TEST_CASE( "tuple/for_each_i/1", "[tuple]" ) {
     auto tuple = std::make_tuple(std::string("asdf"), 42, std::string("false"), true, 1.0f, 'z');
 
@@ -85,6 +97,18 @@ TEST_CASE( "tuple/for_each_i/1", "[tuple]" ) {
     REQUIRE(bool_cnt == 3);
     REQUIRE(float_cnt == 4);
     REQUIRE(char_cnt == 5);
+}
+
+TEST_CASE( "tuple/for_each_i/2", "[tuple]" ) {
+    std::tuple<> tuple;
+
+    bool test = true;
+
+    cpp::for_each_i(tuple, [&](auto& a){
+        test = false;
+    });
+
+    REQUIRE(test);
 }
 
 TEST_CASE( "tuple/for_each_ix/1", "[tuple]" ) {
@@ -127,6 +151,18 @@ TEST_CASE( "tuple/for_each_ix/1", "[tuple]" ) {
     REQUIRE(char_cnt == 5);
 }
 
+TEST_CASE( "tuple/for_each_ix/2", "[tuple]" ) {
+    std::tuple<> tuple;
+
+    bool test = true;
+
+    cpp::for_each_ix(tuple, [&](auto& a){
+        test = false;
+    });
+
+    REQUIRE(test);
+}
+
 TEST_CASE( "tuple/for_each_pair/1", "[tuple]" ) {
     auto tuple = std::make_tuple(std::string("asdf"), 42, true, 1.0f, 'z');
 
@@ -157,6 +193,18 @@ TEST_CASE( "tuple/for_each_pair/1", "[tuple]" ) {
     REQUIRE(int_bool);
     REQUIRE(bool_float);
     REQUIRE(float_char);
+}
+
+TEST_CASE( "tuple/for_each_pair/2", "[tuple]" ) {
+    std::tuple<> tuple;
+
+    bool test = true;
+
+    cpp::for_each_pair(tuple, [&](auto& a, auto& b){
+        test = false;
+    });
+
+    REQUIRE(test);
 }
 
 TEST_CASE( "tuple/for_each_pair_i/1", "[tuple]" ) {
@@ -191,6 +239,18 @@ TEST_CASE( "tuple/for_each_pair_i/1", "[tuple]" ) {
     REQUIRE(float_char);
 }
 
+TEST_CASE( "tuple/for_each_pair_i/2", "[tuple]" ) {
+    std::tuple<> tuple;
+
+    bool test = true;
+
+    cpp::for_each_pair(tuple, [&](auto& a, auto& b){
+        test = false;
+    });
+
+    REQUIRE(test);
+}
+
 TEST_CASE( "tuple/for_each_pair_ix/1", "[tuple]" ) {
     auto tuple = std::make_tuple(std::string("asdf"), 42, true, 1.0f, 'z');
 
@@ -223,6 +283,18 @@ TEST_CASE( "tuple/for_each_pair_ix/1", "[tuple]" ) {
     REQUIRE(int_bool);
     REQUIRE(bool_float);
     REQUIRE(float_char);
+}
+
+TEST_CASE( "tuple/for_each_pair_ix/2", "[tuple]" ) {
+    std::tuple<> tuple;
+
+    bool test = true;
+
+    cpp::for_each_pair(tuple, [&](auto& a, auto& b){
+        test = false;
+    });
+
+    REQUIRE(test);
 }
 
 TEST_CASE( "tuple/for_each_rpair/1", "[tuple]" ) {
