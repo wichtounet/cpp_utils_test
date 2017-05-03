@@ -54,7 +54,7 @@ TEST_CASE( "tuple/for_each/2", "[tuple]" ) {
 
     bool test = true;
 
-    cpp::for_each(tuple, [&](auto& a){
+    cpp::for_each(tuple, [&](auto&){
         test = false;
     });
 
@@ -104,7 +104,7 @@ TEST_CASE( "tuple/for_each_i/2", "[tuple]" ) {
 
     bool test = true;
 
-    cpp::for_each_i(tuple, [&](auto& a){
+    cpp::for_each_i(tuple, [&](auto&){
         test = false;
     });
 
@@ -156,7 +156,7 @@ TEST_CASE( "tuple/for_each_ix/2", "[tuple]" ) {
 
     bool test = true;
 
-    cpp::for_each_ix(tuple, [&](auto& a){
+    cpp::for_each_ix(tuple, [&](auto&){
         test = false;
     });
 
@@ -200,7 +200,7 @@ TEST_CASE( "tuple/for_each_pair/2", "[tuple]" ) {
 
     bool test = true;
 
-    cpp::for_each_pair(tuple, [&](auto& a, auto& b){
+    cpp::for_each_pair(tuple, [&](auto&, auto&){
         test = false;
     });
 
@@ -244,7 +244,7 @@ TEST_CASE( "tuple/for_each_pair_i/2", "[tuple]" ) {
 
     bool test = true;
 
-    cpp::for_each_pair(tuple, [&](auto& a, auto& b){
+    cpp::for_each_pair(tuple, [&](auto&, auto&){
         test = false;
     });
 
@@ -290,7 +290,7 @@ TEST_CASE( "tuple/for_each_pair_ix/2", "[tuple]" ) {
 
     bool test = true;
 
-    cpp::for_each_pair(tuple, [&](auto& a, auto& b){
+    cpp::for_each_pair(tuple, [&](auto&, auto&){
         test = false;
     });
 
