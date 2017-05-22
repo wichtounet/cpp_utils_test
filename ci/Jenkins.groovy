@@ -19,6 +19,7 @@ node {
        sh './debug/bin/test -r junit -d yes -o catch_report.xml || true'
        sh 'gcovr -x -b -r . --object-directory=release_debug/test > coverage_report.xml'
        archive 'catch_report.xml'
+       junit 'catch_report.xml'
 
        stage 'sonar'
        sh '/opt/sonar-runner/bin/sonar-runner'
