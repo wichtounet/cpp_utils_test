@@ -6,7 +6,7 @@ include make-utils/flags.mk
 include make-utils/cpp-utils.mk
 
 WARNING_FLAGS += -pedantic
-CXX_FLAGS += -Iinclude -ICatch/include -Werror
+CXX_FLAGS += -Iinclude -ICatch/single_include -Werror
 
 LD_FLAGS += -pthread
 
