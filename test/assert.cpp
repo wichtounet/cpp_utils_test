@@ -8,6 +8,8 @@
 #undef NDEBUG
 
 #include <iostream>
+#include <sstream>
+
 #include "catch.hpp"
 
 namespace std {
@@ -41,9 +43,9 @@ TEST_CASE( "assert/message/1", "[assert]" ) {
 
 
 #ifdef __clang__
-    REQUIRE(message == "***** Internal Program Error - assertion (value) failed in int (anonymous namespace)::assert_wrapper(bool):\ntest/assert.cpp(28): message\n");
+    REQUIRE(message == "***** Internal Program Error - assertion (value) failed in int (anonymous namespace)::assert_wrapper(bool):\ntest/assert.cpp(30): message\n");
 #else
-    REQUIRE(message == "***** Internal Program Error - assertion (value) failed in int {anonymous}::assert_wrapper(bool):\ntest/assert.cpp(28): message\n");
+    REQUIRE(message == "***** Internal Program Error - assertion (value) failed in int {anonymous}::assert_wrapper(bool):\ntest/assert.cpp(30): message\n");
 #endif
 
     std::cerr.rdbuf(out);
