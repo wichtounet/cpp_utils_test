@@ -8,11 +8,11 @@
 #include <string>
 #include <iostream>
 
-#include "catch.hpp"
+#include "doctest/doctest.h"
 
 #include "cpp_utils/aligned_array.hpp"
 
-TEST_CASE( "aligned_array/1", "[array_wrapper]" ) {
+TEST_CASE( "aligned_array/1" ) {
     cpp::aligned_array<float, 7, 32> array;
 
     REQUIRE(array.size() == 7);
@@ -48,7 +48,7 @@ TEST_CASE( "aligned_array/1", "[array_wrapper]" ) {
     }
 }
 
-TEST_CASE( "aligned_array/2", "[array_wrapper]" ) {
+TEST_CASE( "aligned_array/2" ) {
     cpp::aligned_array<double, 7, 48> array;
 
     REQUIRE(array.size() == 7);
@@ -84,7 +84,7 @@ TEST_CASE( "aligned_array/2", "[array_wrapper]" ) {
     }
 }
 
-TEST_CASE( "aligned_array/3", "[array_wrapper]" ) {
+TEST_CASE( "aligned_array/3" ) {
     alignas(32) cpp::aligned_array<float, 7, 32> array;
 
     REQUIRE(array.size() == 7);
@@ -98,7 +98,7 @@ TEST_CASE( "aligned_array/3", "[array_wrapper]" ) {
     }
 }
 
-TEST_CASE( "aligned_array/4", "[array_wrapper]" ) {
+TEST_CASE( "aligned_array/4" ) {
     using type = cpp::aligned_array<float, 7, 32>;
     auto* array = new type;
 

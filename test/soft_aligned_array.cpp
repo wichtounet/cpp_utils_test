@@ -8,11 +8,11 @@
 #include <string>
 #include <iostream>
 
-#include "catch.hpp"
+#include "doctest/doctest.h"
 
 #include "cpp_utils/soft_aligned_array.hpp"
 
-TEST_CASE( "soft_aligned_array/1", "[array_wrapper]" ) {
+TEST_CASE( "soft_aligned_array/1" ) {
     cpp::soft_aligned_array<float, 7, 32> array;
 
     REQUIRE(array.size() == 7);
@@ -48,7 +48,7 @@ TEST_CASE( "soft_aligned_array/1", "[array_wrapper]" ) {
     }
 }
 
-TEST_CASE( "soft_aligned_array/2", "[array_wrapper]" ) {
+TEST_CASE( "soft_aligned_array/2" ) {
     cpp::soft_aligned_array<double, 7, 64> array;
 
     REQUIRE(array.size() == 7);
@@ -84,7 +84,7 @@ TEST_CASE( "soft_aligned_array/2", "[array_wrapper]" ) {
     }
 }
 
-TEST_CASE( "soft_aligned_array/3", "[array_wrapper]" ) {
+TEST_CASE( "soft_aligned_array/3" ) {
     alignas(32) cpp::soft_aligned_array<float, 7, 32> array;
 
     REQUIRE(array.size() == 7);
@@ -103,7 +103,7 @@ TEST_CASE( "soft_aligned_array/3", "[array_wrapper]" ) {
 
 #if __cpp_aligned_new >= 201606
 
-TEST_CASE( "soft_aligned_array/4", "[array_wrapper]" ) {
+TEST_CASE( "soft_aligned_array/4" ) {
     using type = cpp::soft_aligned_array<float, 7, 32>;
     auto* array = new type;
 

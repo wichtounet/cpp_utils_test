@@ -7,11 +7,11 @@
 
 #include <string>
 
-#include "catch.hpp"
+#include "doctest/doctest.h"
 
 #include "cpp_utils/array_wrapper.hpp"
 
-TEST_CASE( "array_wrapper/1", "[array_wrapper]" ) {
+TEST_CASE( "array_wrapper/1" ) {
     auto* mem = static_cast<float*>(malloc(sizeof(float) * 8));
 
     cpp::array_wrapper<float> array(mem, 7);

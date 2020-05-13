@@ -10,7 +10,7 @@
 #include <iostream>
 #include <sstream>
 
-#include "catch.hpp"
+#include "doctest/doctest.h"
 
 namespace std {
 
@@ -33,7 +33,7 @@ int assert_wrapper(bool value){
 
 } //end of namespace
 
-TEST_CASE( "assert/message/1", "[assert]" ) {
+TEST_CASE( "assert/message/1" ) {
     std::stringstream stream;
     auto out = std::cerr.rdbuf();
     std::cerr.rdbuf(stream.rdbuf());

@@ -7,11 +7,11 @@
 
 #include <string>
 
-#include "catch.hpp"
+#include "doctest/doctest.h"
 
 #include "cpp_utils/string.hpp"
 
-TEST_CASE( "ltrim", "ltrim" ) {
+TEST_CASE( "ltrim" ) {
     std::string a = "    asdf";
     std::string b = "    asdf    ";
     std::string c = "asdf";
@@ -28,7 +28,7 @@ TEST_CASE( "ltrim", "ltrim" ) {
     REQUIRE(d == "asdf  ");
 }
 
-TEST_CASE( "rtrim", "rtrim" ) {
+TEST_CASE( "rtrim" ) {
     std::string a = "    asdf";
     std::string b = "    asdf    ";
     std::string c = "asdf";
@@ -45,7 +45,7 @@ TEST_CASE( "rtrim", "rtrim" ) {
     REQUIRE(d == "asdf");
 }
 
-TEST_CASE( "trim", "trim" ) {
+TEST_CASE( "trim" ) {
     std::string a = "    asdf";
     std::string b = "    asdf    ";
     std::string c = "asdf";

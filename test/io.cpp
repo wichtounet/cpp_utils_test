@@ -7,12 +7,13 @@
 
 #include <string>
 #include <fstream>
+#include <vector>
 
-#include "catch.hpp"
+#include "doctest/doctest.h"
 
 #include "cpp_utils/io.hpp"
 
-TEST_CASE( "binary/rw", "[binary]" ) {
+TEST_CASE( "binary/rw") {
     {
         std::ofstream os("test1.tmp.etl", std::ios::out | std::ios::binary);
 
@@ -40,7 +41,7 @@ TEST_CASE( "binary/rw", "[binary]" ) {
     REQUIRE(d == 1e8);
 }
 
-TEST_CASE( "binary/rw_all", "[binary]" ) {
+TEST_CASE( "binary/rw_all") {
     {
         std::ofstream os("test2.tmp.etl", std::ios::out | std::ios::binary);
 

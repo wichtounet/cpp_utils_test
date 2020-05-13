@@ -5,5 +5,7 @@
 //  http://opensource.org/licenses/MIT)
 //=======================================================================
 
-#define CATCH_CONFIG_MAIN
-#include "catch.hpp"
+#define DOCTEST_CONFIG_ASSERTION_PARAMETERS_BY_VALUE
+#define DOCTEST_CONFIG_SUPER_FAST_ASSERTS
+#define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
+#include "doctest/doctest.h"

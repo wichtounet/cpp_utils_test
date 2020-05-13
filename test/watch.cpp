@@ -10,17 +10,17 @@
 #include <thread>
 #include <sstream>
 
-#include "catch.hpp"
+#include "doctest/doctest.h"
 
 #include "cpp_utils/stop_watch.hpp"
 
-TEST_CASE( "watch/1", "[watch]" ) {
+TEST_CASE( "watch/1" ) {
     cpp::stop_watch<> watch;
     std::this_thread::sleep_for(std::chrono::milliseconds(10));
     REQUIRE(watch.elapsed() > 0);
 }
 
-TEST_CASE( "watch/2", "[watch]" ) {
+TEST_CASE( "watch/2" ) {
     std::stringstream stream;
 
     auto backup = std::cout.rdbuf();

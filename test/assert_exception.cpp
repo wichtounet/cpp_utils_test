@@ -8,7 +8,7 @@
 #undef NDEBUG
 #define CPP_UTILS_ASSERT_EXCEPTION
 
-#include "catch.hpp"
+#include "doctest/doctest.h"
 
 #include "cpp_utils/assert.hpp"
 
@@ -21,7 +21,7 @@ int assert_wrapper(bool value){
 
 } //end of namespace
 
-TEST_CASE( "assert/exception/1", "[assert]" ) {
+TEST_CASE( "assert/exception/1" ) {
     REQUIRE_THROWS(assert_wrapper(false));
     REQUIRE_NOTHROW(assert_wrapper(true));
 }

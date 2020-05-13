@@ -7,11 +7,11 @@
 
 #include <vector>
 
-#include "catch.hpp"
+#include "doctest/doctest.h"
 
 #include "cpp_utils/aligned_vector.hpp"
 
-TEST_CASE( "aligned_vector/1", "[array_wrapper]" ) {
+TEST_CASE( "aligned_vector/1" ) {
     cpp::aligned_vector<float, 32> array(7);
 
     REQUIRE(array.size() == 7);
@@ -47,7 +47,7 @@ TEST_CASE( "aligned_vector/1", "[array_wrapper]" ) {
     }
 }
 
-TEST_CASE( "aligned_vector/2", "[array_wrapper]" ) {
+TEST_CASE( "aligned_vector/2" ) {
     cpp::aligned_vector<double, 48> array(7);
 
     REQUIRE(array.size() == 7);

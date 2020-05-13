@@ -10,12 +10,12 @@
 #include <vector>
 #include <list>
 
-#include "catch.hpp"
+#include "doctest/doctest.h"
 
 #include "cpp_utils/parallel.hpp"
 #include "cpp_utils/maybe_parallel.hpp"
 
-TEST_CASE( "thread_pool<true>/parallel_foreach/1", "[parallel]" ) {
+TEST_CASE( "thread_pool<true>/parallel_foreach/1" ) {
     std::vector<int> ints{0, 1, 2, 3, 4, 5, 6};
 
     cpp::thread_pool<true> tp;
@@ -33,7 +33,7 @@ TEST_CASE( "thread_pool<true>/parallel_foreach/1", "[parallel]" ) {
     REQUIRE(ints[6] == 7);
 }
 
-TEST_CASE( "thread_pool<true>/parallel_foreach/2", "[parallel]" ) {
+TEST_CASE( "thread_pool<true>/parallel_foreach/2" ) {
     std::vector<int> ints{0, 1, 2, 3, 4, 5, 6};
 
     cpp::thread_pool<true> tp;
@@ -51,7 +51,7 @@ TEST_CASE( "thread_pool<true>/parallel_foreach/2", "[parallel]" ) {
     REQUIRE(ints[6] == 7);
 }
 
-TEST_CASE( "thread_pool<true>/parallel_foreach/3", "[parallel]" ) {
+TEST_CASE( "thread_pool<true>/parallel_foreach/3" ) {
     std::vector<std::size_t> ints(109);
 
     std::iota(ints.begin(), ints.end(), 0);
@@ -67,7 +67,7 @@ TEST_CASE( "thread_pool<true>/parallel_foreach/3", "[parallel]" ) {
     }
 }
 
-TEST_CASE( "thread_pool<true>/parallel_foreach/4", "[parallel]" ) {
+TEST_CASE( "thread_pool<true>/parallel_foreach/4" ) {
     std::vector<std::size_t> ints(107);
 
     std::iota(ints.begin(), ints.end(), 0);
@@ -83,7 +83,7 @@ TEST_CASE( "thread_pool<true>/parallel_foreach/4", "[parallel]" ) {
     }
 }
 
-TEST_CASE( "thread_pool<true>/parallel_foreach/5", "[parallel]" ) {
+TEST_CASE( "thread_pool<true>/parallel_foreach/5" ) {
     std::list<std::size_t> ints(107);
 
     std::iota(ints.begin(), ints.end(), 0);
@@ -108,7 +108,7 @@ TEST_CASE( "thread_pool<true>/parallel_foreach/5", "[parallel]" ) {
     }
 }
 
-TEST_CASE( "thread_pool<true>/parallel_foreach_i/1", "[parallel]" ) {
+TEST_CASE( "thread_pool<true>/parallel_foreach_i/1" ) {
     std::vector<int> ints{-1,2,0,3,4,1};
 
     cpp::thread_pool<true> tp;
@@ -125,7 +125,7 @@ TEST_CASE( "thread_pool<true>/parallel_foreach_i/1", "[parallel]" ) {
     REQUIRE(ints[5] == 5);
 }
 
-TEST_CASE( "thread_pool<true>/parallel_foreach_i/2", "[parallel]" ) {
+TEST_CASE( "thread_pool<true>/parallel_foreach_i/2" ) {
     std::vector<int> ints{-1,2,0,3,4,1};
 
     cpp::thread_pool<true> tp;
@@ -142,7 +142,7 @@ TEST_CASE( "thread_pool<true>/parallel_foreach_i/2", "[parallel]" ) {
     REQUIRE(ints[5] == 5);
 }
 
-TEST_CASE( "thread_pool<true>/parallel_foreach_n/1", "[parallel]" ) {
+TEST_CASE( "thread_pool<true>/parallel_foreach_n/1" ) {
     std::vector<int> ints{0, 1, 2, 3, 4, 5, 6};
 
     cpp::thread_pool<true> tp;
@@ -160,7 +160,7 @@ TEST_CASE( "thread_pool<true>/parallel_foreach_n/1", "[parallel]" ) {
     REQUIRE(ints[6] == 7);
 }
 
-TEST_CASE( "thread_pool<true>/parallel_foreach_n/2", "[parallel]" ) {
+TEST_CASE( "thread_pool<true>/parallel_foreach_n/2" ) {
     std::vector<std::size_t> ints(109);
 
     std::iota(ints.begin(), ints.end(), 0);
@@ -176,7 +176,7 @@ TEST_CASE( "thread_pool<true>/parallel_foreach_n/2", "[parallel]" ) {
     }
 }
 
-TEST_CASE( "thread_pool<false>/parallel_foreach/1", "[parallel]" ) {
+TEST_CASE( "thread_pool<false>/parallel_foreach/1" ) {
     std::vector<int> ints{0, 1, 2, 3, 4, 5, 6};
 
     cpp::thread_pool<false> tp;
@@ -194,7 +194,7 @@ TEST_CASE( "thread_pool<false>/parallel_foreach/1", "[parallel]" ) {
     REQUIRE(ints[6] == 7);
 }
 
-TEST_CASE( "thread_pool<false>/parallel_foreach/2", "[parallel]" ) {
+TEST_CASE( "thread_pool<false>/parallel_foreach/2" ) {
     std::vector<int> ints{0, 1, 2, 3, 4, 5, 6};
 
     cpp::thread_pool<false> tp;
@@ -212,7 +212,7 @@ TEST_CASE( "thread_pool<false>/parallel_foreach/2", "[parallel]" ) {
     REQUIRE(ints[6] == 7);
 }
 
-TEST_CASE( "thread_pool<false>/parallel_foreach_i/1", "[parallel]" ) {
+TEST_CASE( "thread_pool<false>/parallel_foreach_i/1" ) {
     std::vector<int> ints{-1,2,0,3,4,1};
 
     cpp::thread_pool<false> tp;
@@ -229,7 +229,7 @@ TEST_CASE( "thread_pool<false>/parallel_foreach_i/1", "[parallel]" ) {
     REQUIRE(ints[5] == 5);
 }
 
-TEST_CASE( "thread_pool<false>/parallel_foreach_i/2", "[parallel]" ) {
+TEST_CASE( "thread_pool<false>/parallel_foreach_i/2" ) {
     std::vector<int> ints{-1,2,0,3,4,1};
 
     cpp::thread_pool<false> tp;
@@ -245,7 +245,7 @@ TEST_CASE( "thread_pool<false>/parallel_foreach_i/2", "[parallel]" ) {
     REQUIRE(ints[4] == 4); REQUIRE(ints[5] == 5);
 }
 
-TEST_CASE( "thread_pool<false>/parallel_foreach_n/1", "[parallel]" ) {
+TEST_CASE( "thread_pool<false>/parallel_foreach_n/1" ) {
     std::vector<int> ints{0, 1, 2, 3, 4, 5, 6};
 
     cpp::thread_pool<false> tp;

@@ -8,11 +8,11 @@
 #include <string>
 #include <sstream>
 
-#include "catch.hpp"
+#include "doctest/doctest.h"
 
 #include "cpp_utils/static_if.hpp"
 
-TEST_CASE( "static_if/1", "[static_if]" ) {
+TEST_CASE( "static_if/1" ) {
     int value = 42;
 
     cpp::static_if<true>([&value](auto){
@@ -22,7 +22,7 @@ TEST_CASE( "static_if/1", "[static_if]" ) {
     REQUIRE(value == 1);
 }
 
-TEST_CASE( "static_if/2", "[static_if]" ) {
+TEST_CASE( "static_if/2" ) {
     int value = 42;
 
     cpp::static_if<false>([&value](auto){
@@ -32,7 +32,7 @@ TEST_CASE( "static_if/2", "[static_if]" ) {
     REQUIRE(value == 42);
 }
 
-TEST_CASE( "static_if/3", "[static_if]" ) {
+TEST_CASE( "static_if/3" ) {
     int value = 42;
 
     cpp::static_if<false>([&value](auto){
@@ -44,7 +44,7 @@ TEST_CASE( "static_if/3", "[static_if]" ) {
     REQUIRE(value == 2);
 }
 
-TEST_CASE( "static_if/4", "[static_if]" ) {
+TEST_CASE( "static_if/4" ) {
     int value = 42;
 
     cpp::static_if<true>([&value](auto f){

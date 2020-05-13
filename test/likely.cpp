@@ -7,11 +7,11 @@
 
 #include <string>
 
-#include "catch.hpp"
+#include "doctest/doctest.h"
 
 #include "cpp_utils/likely.hpp"
 
-TEST_CASE( "likely", "likely" ) {
+TEST_CASE( "likely" ) {
     std::string a = "asdf";
     std::string b = "asdf";
 
@@ -25,7 +25,7 @@ TEST_CASE( "likely", "likely" ) {
     REQUIRE(ok);
 }
 
-TEST_CASE( "unlikely", "unlikely" ) {
+TEST_CASE( "unlikely" ) {
     std::string a = "asdf";
     std::string b = "asdf";
 

@@ -8,11 +8,11 @@
 #include <vector>
 #include <list>
 
-#include "catch.hpp"
+#include "doctest/doctest.h"
 
 #include "cpp_utils/algorithm.hpp"
 
-TEST_CASE( "foreach/container", "foreach_1" ) {
+TEST_CASE( "foreach/container" ) {
     std::vector<int> a{1,2,3,4,5};
 
     int sum = 0;
@@ -24,7 +24,7 @@ TEST_CASE( "foreach/container", "foreach_1" ) {
     REQUIRE(sum == 15);
 }
 
-TEST_CASE( "foreach/range", "foreach_2" ) {
+TEST_CASE( "foreach/range" ) {
     std::vector<int> a{1,2,3,4,5};
 
     int sum = 0;
@@ -35,7 +35,7 @@ TEST_CASE( "foreach/range", "foreach_2" ) {
     REQUIRE(sum == 15);
 }
 
-TEST_CASE( "foreach/references", "foreach_3" ) {
+TEST_CASE( "foreach/references" ) {
     std::vector<int> a{1,2,3,4,5};
 
     int sum = 0;
@@ -50,7 +50,7 @@ TEST_CASE( "foreach/references", "foreach_3" ) {
     REQUIRE(a[4] == 6);
 }
 
-TEST_CASE( "foreach_it/container", "foreach_it_1" ) {
+TEST_CASE( "foreach_it/container" ) {
     std::vector<int> a{1,2,3,4,5};
 
     int sum = 0;
@@ -62,7 +62,7 @@ TEST_CASE( "foreach_it/container", "foreach_it_1" ) {
     REQUIRE(sum == 15);
 }
 
-TEST_CASE( "foreach_it/range", "foreach_it_2" ) {
+TEST_CASE( "foreach_it/range" ) {
     std::vector<int> a{1,2,3,4,5};
 
     int sum = 0;
@@ -73,7 +73,7 @@ TEST_CASE( "foreach_it/range", "foreach_it_2" ) {
     REQUIRE(sum == 15);
 }
 
-TEST_CASE( "foreach_it/references", "foreach_it_3" ) {
+TEST_CASE( "foreach_it/references" ) {
     std::vector<int> a{1,2,3,4,5};
 
     int sum = 0;
@@ -88,7 +88,7 @@ TEST_CASE( "foreach_it/references", "foreach_it_3" ) {
     REQUIRE(a[4] == 6);
 }
 
-TEST_CASE( "foreach_i/container", "foreach_i_1" ) {
+TEST_CASE( "foreach_i/container" ) {
     std::vector<int> a{1,2,3,4,5};
 
     int sum_1 = 0;
@@ -104,7 +104,7 @@ TEST_CASE( "foreach_i/container", "foreach_i_1" ) {
     REQUIRE(sum_2 == 15);
 }
 
-TEST_CASE( "foreach_i/range", "foreach_i_2" ) {
+TEST_CASE( "foreach_i/range" ) {
     std::vector<int> a{1,2,3,4,5};
 
     int sum_1 = 0;
@@ -120,7 +120,7 @@ TEST_CASE( "foreach_i/range", "foreach_i_2" ) {
     REQUIRE(sum_2 == 15);
 }
 
-TEST_CASE( "foreach_i/references", "foreach_i_3" ) {
+TEST_CASE( "foreach_i/references" ) {
     std::vector<int> a{1,2,3,4,5};
 
     cpp::foreach_i(a.begin(), a.end(), [&a](auto& v, std::size_t i){
@@ -135,7 +135,7 @@ TEST_CASE( "foreach_i/references", "foreach_i_3" ) {
     REQUIRE(a[4] == 7);
 }
 
-TEST_CASE( "foreach_i/list", "foreach_i_4" ) {
+TEST_CASE( "foreach_i/list" ) {
     std::list<int> a{1,2,3,4,5};
 
     int sum = 0;
@@ -154,7 +154,7 @@ TEST_CASE( "foreach_i/list", "foreach_i_4" ) {
     REQUIRE(*it++ == 6);
 }
 
-TEST_CASE( "foreach_pair/container", "foreach_pair_1" ) {
+TEST_CASE( "foreach_pair/container" ) {
     std::vector<int> a{1,2,3,4,5};
 
     int i = 0;
@@ -167,7 +167,7 @@ TEST_CASE( "foreach_pair/container", "foreach_pair_1" ) {
     REQUIRE(i == 10);
 }
 
-TEST_CASE( "foreach_pair/range", "foreach_pair_2" ) {
+TEST_CASE( "foreach_pair/range" ) {
     std::vector<int> a{1,2,3,4,5};
 
     int i = 0;
@@ -180,7 +180,7 @@ TEST_CASE( "foreach_pair/range", "foreach_pair_2" ) {
     REQUIRE(i == 10);
 }
 
-TEST_CASE( "foreach_pair_it/container", "foreach_pair_it_1" ) {
+TEST_CASE( "foreach_pair_it/container" ) {
     std::vector<int> a{1,2,3,4,5};
 
     int i = 0;
@@ -193,7 +193,7 @@ TEST_CASE( "foreach_pair_it/container", "foreach_pair_it_1" ) {
     REQUIRE(i == 10);
 }
 
-TEST_CASE( "foreach_pair_it/range", "foreach_pair_it_2" ) {
+TEST_CASE( "foreach_pair_it/range" ) {
     std::vector<int> a{1,2,3,4,5};
 
     int i = 0;
@@ -206,7 +206,7 @@ TEST_CASE( "foreach_pair_it/range", "foreach_pair_it_2" ) {
     REQUIRE(i == 10);
 }
 
-TEST_CASE( "foreach_dual/container", "foreach_dual_1" ) {
+TEST_CASE( "foreach_dual/container" ) {
     std::vector<int> a{1,2,3,4,5};
     std::vector<int> b{-1,-2,-3,-4,-5};
 
@@ -221,7 +221,7 @@ TEST_CASE( "foreach_dual/container", "foreach_dual_1" ) {
     REQUIRE(i == 5);
 }
 
-TEST_CASE( "foreach_dual/iterators", "foreach_dual_2" ) {
+TEST_CASE( "foreach_dual/iterators" ) {
     std::vector<int> a{1,2,3,4,5};
     std::vector<int> b{-1,-2,-3,-4,-5};
 
@@ -236,7 +236,7 @@ TEST_CASE( "foreach_dual/iterators", "foreach_dual_2" ) {
     REQUIRE(i == 5);
 }
 
-TEST_CASE( "foreach_dual_it/container", "foreach_dual_it_1" ) {
+TEST_CASE( "foreach_dual_it/container" ) {
     std::vector<int> a{1,2,3,4,5};
     std::vector<int> b{-1,-2,-3,-4,-5};
 
@@ -251,7 +251,7 @@ TEST_CASE( "foreach_dual_it/container", "foreach_dual_it_1" ) {
     REQUIRE(i == 5);
 }
 
-TEST_CASE( "foreach_dual_it/iterators", "foreach_dual_it_1" ) {
+TEST_CASE( "foreach_dual_it/iterators" ) {
     std::vector<int> a{1,2,3,4,5};
     std::vector<int> b{-1,-2,-3,-4,-5};
 
@@ -266,7 +266,7 @@ TEST_CASE( "foreach_dual_it/iterators", "foreach_dual_it_1" ) {
     REQUIRE(i == 5);
 }
 
-TEST_CASE( "foreach_dual_i/container", "foreach_dual_i_1" ) {
+TEST_CASE( "foreach_dual_i/container" ) {
     std::vector<int> a{1,2,3,4,5};
     std::vector<int> b{-1,-2,-3,-4,-5};
 
@@ -286,7 +286,7 @@ TEST_CASE( "foreach_dual_i/container", "foreach_dual_i_1" ) {
     REQUIRE(cc == 10);
 }
 
-TEST_CASE( "foreach_dual_i/iterators", "foreach_dual_i_2" ) {
+TEST_CASE( "foreach_dual_i/iterators" ) {
     std::vector<int> a{1,2,3,4,5};
     std::vector<int> b{-1,-2,-3,-4,-5};
 
@@ -306,7 +306,7 @@ TEST_CASE( "foreach_dual_i/iterators", "foreach_dual_i_2" ) {
     REQUIRE(cc == 10);
 }
 
-TEST_CASE( "foreach_n/1", "[algorithm]" ) {
+TEST_CASE( "foreach_n/1" ) {
     int i = 0;
     int cc = 0;
 

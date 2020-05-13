@@ -7,11 +7,11 @@
 
 #include <string>
 
-#include "catch.hpp"
+#include "doctest/doctest.h"
 
 #include "cpp_utils/tuple_utils.hpp"
 
-TEST_CASE( "tuple/for_each/1", "[tuple]" ) {
+TEST_CASE( "tuple/for_each/1" ) {
     auto tuple = std::make_tuple(std::string("asdf"), 42, std::string("false"), true, 1.0f, 'z');
 
     std::size_t string_cnt = 0;
@@ -49,7 +49,7 @@ TEST_CASE( "tuple/for_each/1", "[tuple]" ) {
     REQUIRE(char_cnt == 1);
 }
 
-TEST_CASE( "tuple/for_each/2", "[tuple]" ) {
+TEST_CASE( "tuple/for_each/2" ) {
     std::tuple<> tuple;
 
     bool test = true;
@@ -61,7 +61,7 @@ TEST_CASE( "tuple/for_each/2", "[tuple]" ) {
     REQUIRE(test);
 }
 
-TEST_CASE( "tuple/for_each_i/1", "[tuple]" ) {
+TEST_CASE( "tuple/for_each_i/1" ) {
     auto tuple = std::make_tuple(std::string("asdf"), 42, std::string("false"), true, 1.0f, 'z');
 
     std::size_t string_cnt = 0;
@@ -99,7 +99,7 @@ TEST_CASE( "tuple/for_each_i/1", "[tuple]" ) {
     REQUIRE(char_cnt == 5);
 }
 
-TEST_CASE( "tuple/for_each_i/2", "[tuple]" ) {
+TEST_CASE( "tuple/for_each_i/2" ) {
     std::tuple<> tuple;
 
     bool test = true;
@@ -111,7 +111,7 @@ TEST_CASE( "tuple/for_each_i/2", "[tuple]" ) {
     REQUIRE(test);
 }
 
-TEST_CASE( "tuple/for_each_ix/1", "[tuple]" ) {
+TEST_CASE( "tuple/for_each_ix/1" ) {
     auto tuple = std::make_tuple(std::string("asdf"), 42, std::string("false"), true, 1.0f, 'z');
 
     std::size_t string_cnt = 0;
@@ -151,7 +151,7 @@ TEST_CASE( "tuple/for_each_ix/1", "[tuple]" ) {
     REQUIRE(char_cnt == 5);
 }
 
-TEST_CASE( "tuple/for_each_ix/2", "[tuple]" ) {
+TEST_CASE( "tuple/for_each_ix/2" ) {
     std::tuple<> tuple;
 
     bool test = true;
@@ -163,7 +163,7 @@ TEST_CASE( "tuple/for_each_ix/2", "[tuple]" ) {
     REQUIRE(test);
 }
 
-TEST_CASE( "tuple/for_each_pair/1", "[tuple]" ) {
+TEST_CASE( "tuple/for_each_pair/1" ) {
     auto tuple = std::make_tuple(std::string("asdf"), 42, true, 1.0f, 'z');
 
     bool string_int = false;
@@ -195,7 +195,7 @@ TEST_CASE( "tuple/for_each_pair/1", "[tuple]" ) {
     REQUIRE(float_char);
 }
 
-TEST_CASE( "tuple/for_each_pair/2", "[tuple]" ) {
+TEST_CASE( "tuple/for_each_pair/2" ) {
     std::tuple<> tuple;
 
     bool test = true;
@@ -207,7 +207,7 @@ TEST_CASE( "tuple/for_each_pair/2", "[tuple]" ) {
     REQUIRE(test);
 }
 
-TEST_CASE( "tuple/for_each_pair_i/1", "[tuple]" ) {
+TEST_CASE( "tuple/for_each_pair_i/1" ) {
     auto tuple = std::make_tuple(std::string("asdf"), 42, true, 1.0f, 'z');
 
     bool string_int = false;
@@ -239,7 +239,7 @@ TEST_CASE( "tuple/for_each_pair_i/1", "[tuple]" ) {
     REQUIRE(float_char);
 }
 
-TEST_CASE( "tuple/for_each_pair_i/2", "[tuple]" ) {
+TEST_CASE( "tuple/for_each_pair_i/2" ) {
     std::tuple<> tuple;
 
     bool test = true;
@@ -251,7 +251,7 @@ TEST_CASE( "tuple/for_each_pair_i/2", "[tuple]" ) {
     REQUIRE(test);
 }
 
-TEST_CASE( "tuple/for_each_pair_ix/1", "[tuple]" ) {
+TEST_CASE( "tuple/for_each_pair_ix/1" ) {
     auto tuple = std::make_tuple(std::string("asdf"), 42, true, 1.0f, 'z');
 
     bool string_int = false;
@@ -285,7 +285,7 @@ TEST_CASE( "tuple/for_each_pair_ix/1", "[tuple]" ) {
     REQUIRE(float_char);
 }
 
-TEST_CASE( "tuple/for_each_pair_ix/2", "[tuple]" ) {
+TEST_CASE( "tuple/for_each_pair_ix/2" ) {
     std::tuple<> tuple;
 
     bool test = true;
@@ -297,7 +297,7 @@ TEST_CASE( "tuple/for_each_pair_ix/2", "[tuple]" ) {
     REQUIRE(test);
 }
 
-TEST_CASE( "tuple/for_each_rpair/1", "[tuple]" ) {
+TEST_CASE( "tuple/for_each_rpair/1" ) {
     auto tuple = std::make_tuple(std::string("asdf"), 42, true, 1.0f, 'z');
 
     bool string_int = false;
@@ -332,7 +332,7 @@ TEST_CASE( "tuple/for_each_rpair/1", "[tuple]" ) {
     REQUIRE(float_char);
 }
 
-TEST_CASE( "tuple/for_each_rpair_i/1", "[tuple]" ) {
+TEST_CASE( "tuple/for_each_rpair_i/1" ) {
     auto tuple = std::make_tuple(std::string("asdf"), 42, true, 1.0f, 'z');
 
     bool string_int = false;
@@ -367,7 +367,7 @@ TEST_CASE( "tuple/for_each_rpair_i/1", "[tuple]" ) {
     REQUIRE(float_char);
 }
 
-TEST_CASE( "tuple/for_each_rpair_ix/1", "[tuple]" ) {
+TEST_CASE( "tuple/for_each_rpair_ix/1" ) {
     auto tuple = std::make_tuple(std::string("asdf"), 42, true, 1.0f, 'z');
 
     bool string_int = false;
@@ -404,7 +404,7 @@ TEST_CASE( "tuple/for_each_rpair_ix/1", "[tuple]" ) {
     REQUIRE(float_char);
 }
 
-TEST_CASE( "tuple/dual_for_each/1", "[tuple]" ) {
+TEST_CASE( "tuple/dual_for_each/1" ) {
     auto t1 = std::make_tuple(std::string("asdf"), 42, true, 1.0f, 'z');
     auto t2 = std::make_tuple('z',               1.0f, true, 42, std::string("asdf"));
 
@@ -446,7 +446,7 @@ TEST_CASE( "tuple/dual_for_each/1", "[tuple]" ) {
     REQUIRE(char_string);
 }
 
-TEST_CASE( "tuple/dual_for_each_i/1", "[tuple]" ) {
+TEST_CASE( "tuple/dual_for_each_i/1" ) {
     auto t1 = std::make_tuple(std::string("asdf"), 42, true, 1.0f, 'z');
     auto t2 = std::make_tuple('z',               1.0f, true, 42, std::string("asdf"));
 
@@ -488,7 +488,7 @@ TEST_CASE( "tuple/dual_for_each_i/1", "[tuple]" ) {
     REQUIRE(char_string);
 }
 
-TEST_CASE( "tuple/dual_for_each_ix/1", "[tuple]" ) {
+TEST_CASE( "tuple/dual_for_each_ix/1" ) {
     auto t1 = std::make_tuple(std::string("asdf"), 42, true, 1.0f, 'z');
     auto t2 = std::make_tuple('z',               1.0f, true, 42, std::string("asdf"));
 

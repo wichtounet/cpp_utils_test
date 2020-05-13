@@ -8,11 +8,11 @@
 #include <string>
 #include <sstream>
 
-#include "catch.hpp"
+#include "doctest/doctest.h"
 
 #include "cpp_utils/streams.hpp"
 
-TEST_CASE( "streams/1", "[streams]" ) {
+TEST_CASE( "streams/1" ) {
     std::vector<std::string> strings{"asdf","","pop","123"};
 
     std::stringstream stream;
@@ -23,7 +23,7 @@ TEST_CASE( "streams/1", "[streams]" ) {
     REQUIRE(stream.str() == "[asdf, , pop, 123]");
 }
 
-TEST_CASE( "streams/2", "[streams]" ) {
+TEST_CASE( "streams/2" ) {
     std::vector<int> ints{1,2,3,99,0,-1,1};
 
     std::stringstream stream;
@@ -34,7 +34,7 @@ TEST_CASE( "streams/2", "[streams]" ) {
     REQUIRE(stream.str() == "[1, 2, 3, 99, 0, -1, 1]");
 }
 
-TEST_CASE( "streams/3", "[streams]" ) {
+TEST_CASE( "streams/3" ) {
     std::vector<int> ints;
 
     std::stringstream stream;
