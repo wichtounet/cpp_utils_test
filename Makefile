@@ -5,6 +5,9 @@ default: release
 include make-utils/flags.mk
 include make-utils/cpp-utils.mk
 
+# Use C++20
+$(eval $(call use_cpp20))
+
 WARNING_FLAGS += -pedantic
 CXX_FLAGS += -Iinclude -ICatch/single_include -Werror
 
