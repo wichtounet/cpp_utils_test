@@ -75,8 +75,7 @@ TEST_CASE( "foreach_it/range" ) {
 TEST_CASE( "foreach_it/references" ) {
     std::vector<int> a{1,2,3,4,5};
 
-    int sum = 0;
-    cpp::foreach_it(a.begin(), a.end(), [&sum](auto v){
+    cpp::foreach_it(a.begin(), a.end(), [](auto v){
         *v += 1;
     });
 
