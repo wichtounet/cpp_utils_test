@@ -38,8 +38,7 @@ TEST_CASE( "foreach/range" ) {
 TEST_CASE( "foreach/references" ) {
     std::vector<int> a{1,2,3,4,5};
 
-    int sum = 0;
-    cpp::foreach(a.begin(), a.end(), [&sum](auto& v){
+    cpp::foreach(a.begin(), a.end(), [](auto& v){
         v += 1;
     });
 
