@@ -9,7 +9,7 @@ include make-utils/cpp-utils.mk
 $(eval $(call use_cpp23))
 
 WARNING_FLAGS += -pedantic
-CXX_FLAGS += -Iinclude -Idoctest -Werror
+CXX_FLAGS += -Iinclude -Idoctest -Werror -Wno-deprecated-declarations
 
 LD_FLAGS += -pthread
 
