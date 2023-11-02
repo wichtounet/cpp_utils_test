@@ -8,6 +8,9 @@ include make-utils/cpp-utils.mk
 # Use C++23
 $(eval $(call use_cpp23))
 
+# Enable coverage
+$(eval $(call enable_coverage))
+
 WARNING_FLAGS += -pedantic
 CXX_FLAGS += -Iinclude -Idoctest -Werror -Wno-deprecated-declarations
 
@@ -28,9 +31,9 @@ endif
 $(eval $(call auto_folder_compile,test))
 $(eval $(call auto_add_executable,test))
 
-release: release_test
-release_debug: release_debug_test
-debug: debug_test
+release: release/bin/test
+release_debug: release_debug/bin/test
+debug: debug/bin/test
 
 clang-tidy:
 	@ /usr/share/clang/run-clang-tidy.py -p . -header-filter '^include/cpp_utils' -checks='cert-*,cppcoreguidelines-*,google-*,llvm-*,misc-*,modernize-*,performance-*,readility-*,-cppcoreguidelines-pro-type-reinterpret-cast,-cppcoreguidelines-pro-bounds-pointer-arithmetic,-google-readability-namespace-comments,-llvm-namespace-comment,-llvm-include-order,-google-runtime-references' -j9 2>/dev/null  | /usr/bin/zgrep -v "^clang-tidy"
